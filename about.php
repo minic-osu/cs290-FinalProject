@@ -53,7 +53,6 @@ if ((isset($_POST['description'])) && (isset($_POST['major'])) && (isset($_POST[
   <header>
     <nav class="navbar navbar-default">
       <div class="container-fluid">
-<<<<<<< HEAD
 	<!-- Brand and toggle get grouped for better mobile display -->
 	<div class="navbar-header">
 	  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -80,7 +79,6 @@ if ((isset($_POST['description'])) && (isset($_POST['major'])) && (isset($_POST[
 
 	  </ul>
 	</div><!-- /.navbar-collapse -->
-=======
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -107,7 +105,6 @@ if ((isset($_POST['description'])) && (isset($_POST['major'])) && (isset($_POST[
 
           </ul>
         </div><!-- /.navbar-collapse -->
->>>>>>> d22ae0160616307d028f49ce704efd9e18445b5d
       </div><!-- /.container-fluid -->
     </nav>
   </header>

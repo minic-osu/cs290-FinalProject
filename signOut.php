@@ -1,8 +1,8 @@
 <?php
 	session_start();
 
-	$old_user = $_SESSION['valid_user'];
-	unset($_SESSION['valid_user']);
+	$old_user = $_SESSION['username'];
+	unset($_SESSION['username']);
 	session_destroy();
 
 ?>
@@ -29,7 +29,7 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="signIn.php">Log In</a></li>
+            <li><a href="signIn.html">Log In</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->

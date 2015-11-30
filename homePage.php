@@ -1,3 +1,10 @@
+<?php
+  session_start();
+  include 'connectivity.php';
+    $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+// Starting session and checking connectivity
+?>
+
 <!DOCTYPE html>
 <head>
   <link rel="stylesheet" href="css/bootstrap.css">

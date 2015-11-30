@@ -46,6 +46,7 @@
 			  $row = mysqli_fetch_array($result);
 			  $_SESSION['firstName'] = $row['firstName'];
 			  $_SESSION['lastName'] = $row['lastName'];
+			  $_SESSION['valid_user'] = $row['userName'];
 
 
 			  $firstName = $_SESSION['firstName'];
@@ -94,7 +95,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Log In</a></li>
+            <li><a href="signIn.php">Log In</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -118,7 +119,7 @@
 						echo " <h3> You are now logged in ".$_SESSION['firstName'];
 						echo "</h3><h5>To go to the game please click the button below.</h5>"; 
 						echo " <br /><br />"; 
-						echo " <p> <button id='button-sign'><a href='./home.php'>Home</a> </button><br /><br />";
+						echo " <p> <button class='btn btn-default' id='button-sign'><a href='./homePage.php'>Home</a> </button><br /><br />";
     					
 
 					}
@@ -134,12 +135,12 @@
 						echo " <form method='post' action='./signIn.php' > ";
 						echo " Username: <input type='text' name='userName'> <br /> <br /> ";
 						echo " Password: <input type='password' name='pass' /> <br /><br />";
-						echo '<input id="button-sign" type="submit" value="Log-In" name="submit" />';
+						echo '<input id="button-sign" class="btn btn-default" type="submit" value="Log-In" name="submit" />';
 
 						echo "</form>";
 						echo "<br>";
 						echo "<form method='POST' action='signUp.php'>";
-						echo "<input id='button-sign' type='submit' value='Sign-Up'>";
+						echo "<input id='button-sign' class='btn btn-default' type='submit' value='Sign-Up'>";
 
 						echo "</form>";
 					}	
@@ -150,6 +151,10 @@
 		<br>
 		<br>
 	</body>
-		<footer id="signIn-footer" class="sansserif">
-    	</footer>
+  <footer>
+    <nav class="navbar navbar-default navbar-bottom" role="navigation">
+      <div class="container">
+      </div>
+    </nav>
+  </footer>
 </html> 

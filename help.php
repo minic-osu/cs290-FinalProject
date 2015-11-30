@@ -43,21 +43,20 @@
   <!-- Latest compiled and minified CSS -->
 
 
-
-
-
-
-Game stuff goes here!
-
-
-
-
-
-
-
-
-
-
+	<section>
+		<p><b>Frequently asked questions: </b><p>
+		<p>Question: What are past fortunes? </p>
+		<p><i>Answer: When you click on past fortunes, you can see all the other fortunes you have gotten in the past. </i></p>
+		<br>
+		<p>Question: How do I see my past fortunes?</p>
+		<p><i>Answer: Click on past fortunes?</i></p>
+		<br>
+		<p>Question: What is the share button? </p>
+		<p><i>Answer: If you click share, other users can see your fortunes. </i></p>
+		<br>
+		<p>Qustion: Who should I contact if I'm experiancing difficulties? </p>
+		<p><i>Answer: Please click on the contact us page for contact details. </i></p>
+	</section>
 
 
 

@@ -25,7 +25,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="#">Home <span class="sr-only">(current)</span></a></li>
+            <li><a href="homePage.php">Home <span class="sr-only">(current)</span></a></li>
             <li><a href="about.php">About</a></li>
             <li class="active"><a href="help.php">Help</a></li>
             <li><a href="past_fortunes.php">Past Fortunes</a></li>
@@ -33,7 +33,7 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Log Out</a></li>
+            <li><a href="signOut.php">Log Out</a></li>
 
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -43,21 +43,20 @@
   <!-- Latest compiled and minified CSS -->
 
 
-
-
-
-
-Game stuff goes here!
-
-
-
-
-
-
-
-
-
-
+	<section>
+		<p><b>Frequently asked questions: </b><p>
+		<p>Question: What are past fortunes? </p>
+		<p><i>Answer: When you click on past fortunes, you can see all the other fortunes you have gotten in the past. </i></p>
+		<br>
+		<p>Question: How do I see my past fortunes?</p>
+		<p><i>Answer: Click on past fortunes?</i></p>
+		<br>
+		<p>Question: What is the share button? </p>
+		<p><i>Answer: If you click share, other users can see your fortunes. </i></p>
+		<br>
+		<p>Qustion: Who should I contact if I'm experiancing difficulties? </p>
+		<p><i>Answer: Please click on the contact us page for contact details. </i></p>
+	</section>
 
 
 

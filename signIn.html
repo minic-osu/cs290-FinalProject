@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Sign-In</title>
+		<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript" src="signIn.js"></script>
+		<link rel="stylesheet" href="css/bootstrap.css">
+  		<!-- <link rel="stylesheet" href="css/bootstrap-responsive.css"> -->
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	
+	</head>
+	<nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="homePage.php">Fortune Teller</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="signIn.php">Log In</a></li>
+	    <li><a href="help.html">Help</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    	<div id="wrapper">
+
+		<header id="header">
+			<div id="title">
+				<h1>Fortune Teller</h1>
+				<div class="center">
+					<!-- <p>Instructions: Sign-in below to start playing the game!</p> -->
+				</div>
+
+
+			</div><!-- #title -->
+		</header><!-- #header -->
+	<body id="body-color">
+
+		<div id="Sign-In">
+
+			<fieldset style="width:90%"><legend>LOG-IN HERE</legend>
+				<form method="POST">
+					Username: <input id="username" type="text" name="username"> <br /> <br /> 
+					Password: <input id="password" type="password" name="password" /> <br /><br />
+					<input id="submit_login" class="btn btn-default" name="submit" value="Login" type="submit"><!-- submit button -->
+
+					<span class="errormess"></span><!-- the ajax result wrapper -->
+				</form>
+				<br>
+				<form method="POST" action="signUp.php">
+						<input id="button-sign" class="btn btn-default" type="submit" value="Sign-Up">
+
+				</form>
+
+
+			</fieldset>
+		</div>
+		<br>
+		<br>
+	</body>
+	  <footer>
+	    <nav class="navbar navbar-default navbar-bottom" role="navigation">
+	      <div class="container">
+	      </div>
+	    </nav>
+	  </footer>
+</html> 

@@ -75,16 +75,16 @@
         // Confirm success with the user
         echo '<br><br><p class="center">Your new account has been successfully created. You\'re now ready to log in.</p>
           <div id="Sign-In">
-        <fieldset style="width:90%"><legend>LOG-IN HERE</legend>
-          <form method="POST" action="./signIn.php">
-            Username <br>
-            <input type="text" name="userName" size="40"><br>
-            Password <br>
-            <input type="password" name="pass" size="40"><br><br>
-            <input id="button-sign" class="btn btn-default" type="submit" name="submit" value="Log-In">
-          </form>
-        </fieldset>
-      </div>';
+          
+
+            <fieldset style="width:90%"><legend>Click Button Below to Log In</legend>
+              <form method="POST" action="signIn.html">
+                  <input id="button-sign" class="btn btn-default" type="submit" value="Sign In">
+
+              </form>
+
+            </fieldset>
+          </div>';
 
         mysqli_close($dbc);
         exit();

@@ -22,7 +22,7 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="homePage.php">Home <span class="sr-only">(current)</span></a></li>
             <li><a href="about.php">About</a></li>
             <li><a href="help.php">Help</a></li>
             <li><a href="past_fortunes.php">Past Fortunes</a></li>

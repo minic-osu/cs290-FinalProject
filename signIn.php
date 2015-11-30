@@ -1,122 +1,34 @@
 <?php
-	session_start(); 
+	session_start();
 	include 'connectivity.php';
+	error_reporting(-1); 
+	ini_set('display_errors', 'On');
 
-	if ((isset($_POST['userName'])) && (isset($_POST['pass'])) ){
-		$userName = $_POST['userName'];
-		$pass = $_POST['pass'];
 		$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 		if ($dbc) {
-			// echo 'Successfully connected to database';
+			echo 'Successfully connected to database';
 		}else{
 			die('Could not connect.');
 		}
+
 		
-		$query = "SELECT * FROM student WHERE username='$userName' and password=sha1('$pass')";
-		$result = mysqli_query($dbc, $query);
-		if (mysqli_num_rows($result) == 1) {
-	
-			// The log-in is OK so set the user ID and username session vars (and cookies), and redirect to the home page
-			  $row = mysqli_fetch_array($result);
-			  $_SESSION['firstName'] = $row['first_name'];
-			  $_SESSION['lastName'] = $row['last_name'];
-			  $_SESSION['valid_user'] = $row['username'];
-
-			  $firstName = $_SESSION['firstName'];
-			  $lastName = $_SESSION['lastName'];
-
-		}
+		$username = $_POST['username'];
+		$password = $_POST['password'];
+		$query = "SELECT username, password FROM student WHERE username='".$username."' AND password='".sha1($password)."' ";
+		$res = mysqli_query($dbc, $query);
+		$num_row = mysqli_num_rows($res);
+		$row=mysqli_fetch_assoc($res);
+		if( $num_row == 1 ) {
+			echo 'true';
+			$_SESSION['username'] = $row['username'];
+			$_SESSION['password'] = $row['password'];
+			// $_SESSION['losses'] = $row['losses'];
+			// $_SESSION['wins'] = $row['wins'];
+			}
 		else {
-          // The username/password are incorrect so set an error message
-			echo "Sorry, you must enter a valid username and password to log in.";
+
+			echo http_response_code(400);
+
 		}
-		mysqli_free_result($result);
-		mysqli_close($dbc);
-	}  
 
 ?>
-
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Sign-In</title>
-		<link rel="stylesheet" href="css/bootstrap.css">
-  		<link rel="stylesheet" href="css/bootstrap-responsive.css">
-  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	</head>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="homePage.php">Fortune Teller</a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="signIn.php">Log In</a></li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
-    	<div id="wrapper">
-
-		<header id="header">
-			<div id="title">
-
-			</div><!-- #title -->
-		</header><!-- #header -->
-	<body id="body-color">
-
-		<div id="Sign-In">
-
-			<fieldset style="width:90%"><legend>LOG-IN HERE</legend>
-				<?php
-
-					if (isset($_SESSION['valid_user'])) {
-						echo " <h3> You are now logged in ".$_SESSION['firstName'];
-						echo "</h3><h5>To go to the fortune teller please click the button below.</h5>"; 
-						echo " <br /><br />"; 
-						echo " <p> <button class='btn btn-default' id='button-sign'><a href='homePage.php'>Home</a> </button><br /><br />";
-    					
-
-					}
-					else {
-						if (isset($userName)) {
-							// user tried but can't log in
-							echo "<h2> Could not log you in </h2>";
-						} else {
-							// echo "stuff";
-						}
-						// Log in form
-
-						echo " <form method='post' action='./signIn.php' > ";
-						echo " Username: <input type='text' name='userName'> <br /> <br /> ";
-						echo " Password: <input type='password' name='pass' /> <br /><br />";
-						echo '<input id="button-sign" class="btn btn-default" type="submit" value="Log-In" name="submit" />';
-
-						echo "</form>";
-						echo "<br>";
-						echo "<form method='POST' action='signUp.php'>";
-						echo "<input id='button-sign' class='btn btn-default' type='submit' value='Sign-Up'>";
-
-						echo "</form>";
-					}	
-				?>
-
-			</fieldset>
-		</div>
-		<br>
-		<br>
-	</body>
-  <footer>
-    <nav class="navbar navbar-default navbar-bottom" role="navigation">
-      <div class="container">
-      </div>
-    </nav>
-  </footer>
-</html> 

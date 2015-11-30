@@ -48,30 +48,37 @@
   define('DB_NAME', 'minic-db');
   define('DB_USER','minic-db');
   define('DB_PASSWORD','P8OhL7x42sbQkpgN');
+  error_reporting(-1); 
+  ini_set('display_errors', 'On');
   $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
   if (isset($_POST['submit'])) {
     // Grab the profile data from the POST
 
     $userName = mysqli_real_escape_string($dbc, trim($_POST['userName']));
-    $pass = mysqli_real_escape_string($dbc, trim($_POST['pass']));
+    $password = mysqli_real_escape_string($dbc, trim($_POST['password']));
     $firstName = mysqli_real_escape_string($dbc, trim($_POST['firstName']));
     $lastName = mysqli_real_escape_string($dbc, trim($_POST['lastName']));  
 
-    if (!empty($userName) && !empty($pass)) {
+
+    if (!empty($userName) && !empty($password)) {
       // Make sure someone isn't already registered using this userName
       $query = "SELECT * FROM student WHERE username = '$userName'";
       $data = mysqli_query($dbc, $query);
 
-    if (1 === preg_match('/^[A-Z].{0,20}[0-9]{2}$/', $pass)) {
+    if (1 === preg_match('/^[A-Z].{0,20}[0-9]{2}$/', $password)) {
       if (mysqli_num_rows($data) == 0) {
         // The userName is unique, so insert the data into the database
 
-        $query = "INSERT INTO student (username, password, first_name, last_name) VALUES ('$userName', sha1('$pass'), '$firstName', '$lastName')";
-        
-        mysqli_query($dbc, $query);
-
-
+        $query = "INSERT INTO student (username, password, first_name, last_name) VALUES ('$userName', sha1('$password'), '$firstName', '$lastName')";
+        var_dump($query);
+        $result = mysqli_query($dbc, $query);
+        if (!$result) {
+            die('Query did not work.' . mysql_error());
+            error_reporting(-1); 
+            ini_set('display_errors', 'On');
+            
+        }
         // Confirm success with the user
         echo '<br><br><p class="center">Your new account has been successfully created. You\'re now ready to log in.</p>
           <div id="Sign-In">
@@ -121,8 +128,8 @@
       <input type="text" id="lastName" name="lastName" /><br /> <br />
       <label for="userName">Username:</label>
       <input type="text" id="userName" name="userName" value="<?php if (!empty($userName)) echo $userName; ?>" /><br /><br />
-      <label for="pass">Password:</label>
-      <input type="password" id="pass" name="pass" /><br /> <br /><br />
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" /><br /> <br /><br />
 
     </fieldset>
     <br />

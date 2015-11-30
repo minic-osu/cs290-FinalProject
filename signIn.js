@@ -20,7 +20,7 @@ $(function() {
 	  if (data == 0) {
 	  $('.errormess').html('Wrong Login Data');
 		} else {
-			$('.errormess').html('<b style="color:green;">you are logged. wait for redirection</b>');	
+			$('.errormess').html('<b style="color:green;">You are logged. Wait for redirection</b>');	
 			document.location.href = 'homePage.php';	
 		}
       }

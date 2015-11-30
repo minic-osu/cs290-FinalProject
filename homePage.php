@@ -24,7 +24,7 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="homePage.php">Home <span class="sr-only">(current)</span></a></li>
             <li><a href="about.php">About</a></li>
-            <li><a href="help.php">Help</a></li>
+            <li><a href="help.html">Help</a></li>
             <li><a href="past_fortunes.php">Past Fortunes</a></li>
            
           </ul>

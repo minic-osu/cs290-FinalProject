@@ -1,32 +1,10 @@
-<!--Name: Claudia Mini
-    Date: November 14th, 2015
-	Note: Some of the code used in 
-	the sign up process uses pieces 
-	from Professor Schuforts code 
-	on canvas-->
-<!DOCTYPE html>
 <?php
-	// $sess="./cs290/public_html/home.php";
-    // ini_set('session.save_path',$sess);
-	// session_start();
-	// begin the session
 	session_start(); 
 	include 'connectivity.php';
 
-
-// set the value of the session variable 'foo'
-			// $_SESSION['foo']= ''; 
-
-// echo a little message to say it is done
-	// echo 'Setting value of foo'; 
-
-
- 
 	if ((isset($_POST['userName'])) && (isset($_POST['pass'])) ){
-			// echo 'Before query'; 
 		$userName = $_POST['userName'];
 		$pass = $_POST['pass'];
-		// echo 'Before query'; 
 		$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 		if ($dbc) {
 			// echo 'Successfully connected to database';
@@ -34,29 +12,18 @@
 			die('Could not connect.');
 		}
 		
-	// echo 'Before query'; 
-		$query = "SELECT * FROM UserName WHERE userName='$userName' and pass=sha1('$pass')";
-		// $name = "SELECT userName FROM UserName WHERE userName='$userName'";
+		$query = "SELECT * FROM student WHERE username='$userName' and password=sha1('$pass')";
 		$result = mysqli_query($dbc, $query);
-	// echo 'After query, before if'; 
 		if (mysqli_num_rows($result) == 1) {
 	
-	// echo 'Within if'; 
 			// The log-in is OK so set the user ID and username session vars (and cookies), and redirect to the home page
 			  $row = mysqli_fetch_array($result);
-			  $_SESSION['firstName'] = $row['firstName'];
-			  $_SESSION['lastName'] = $row['lastName'];
-			  $_SESSION['valid_user'] = $row['userName'];
-
+			  $_SESSION['firstName'] = $row['first_name'];
+			  $_SESSION['lastName'] = $row['last_name'];
+			  $_SESSION['valid_user'] = $row['username'];
 
 			  $firstName = $_SESSION['firstName'];
 			  $lastName = $_SESSION['lastName'];
-
-
-			  // echo "<script>
-			  // 			alert('Name: $firstName<br> Last: $lastName <br> Throws: $throws <br> Wins: $wins<br>Losses: $losses<br>DrawCount: $drawcount<br> Player: $player<br> Computer: $computer<br> Winlossdraw: $winlossdraw<br>')
-			  // 		</script>";
-			  // echo "<script>alert('$firstName')</script>";
 
 		}
 		else {
@@ -69,19 +36,16 @@
 
 ?>
 
-
 <!DOCTYPE HTML>
 <html>
 	<head>
 		<title>Sign-In</title>
-		<!-- <link rel="stylesheet" type="text/css" href="home.css"> -->
 		<link rel="stylesheet" href="css/bootstrap.css">
   		<link rel="stylesheet" href="css/bootstrap-responsive.css">
   		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	</head>
     <nav class="navbar navbar-default">
       <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
@@ -92,7 +56,6 @@
           <a class="navbar-brand" href="#">Fortune Teller</a>
         </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="signIn.php">Log In</a></li>
@@ -113,11 +76,10 @@
 
 			<fieldset style="width:90%"><legend>LOG-IN HERE</legend>
 				<?php
-					// session_start();
 
 					if (isset($_SESSION['valid_user'])) {
 						echo " <h3> You are now logged in ".$_SESSION['firstName'];
-						echo "</h3><h5>To go to the game please click the button below.</h5>"; 
+						echo "</h3><h5>To go to the fortune teller please click the button below.</h5>"; 
 						echo " <br /><br />"; 
 						echo " <p> <button class='btn btn-default' id='button-sign'><a href='./homePage.php'>Home</a> </button><br /><br />";
     					

@@ -6,33 +6,37 @@
 	session_destroy();
 
 ?>
-<!--Name: Claudia Mini
-    Date: November 14th, 2015-->
 <!DOCTYPE html>
 <html>
 
-  <head lang="en">
-    <meta charset="utf-8">
-    <title> Rock, Paper, Scissors</title>
-    <link rel="stylesheet" href="./home.css">
-  </head>
+  <head>
+		<title>Sign-In</title>
+		<link rel="stylesheet" href="css/bootstrap.css">
+  		<link rel="stylesheet" href="css/bootstrap-responsive.css">
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	</head>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Fortune Teller</a>
+        </div>
 
-
-  	<body> 
-
-
-	    <nav id="sansserif" class="reg-nav">
-	      <ul class="nav-settings-ul-li nav-settings-ul-li-a">
-	          <li class="nav-settings-ul-li nav-settings-ul-li-a"><a class="nav-settings-ul-li-a" href="signIn.php">Log In</a></li>
-	      </ul>
-	    </nav>
-
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="signIn.php">Log In</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
     	<div id="wrapper">
 
 		<header id="header">
-			<div id="title">
-				<h1>Rock, Paper, Scissors</h1>
-			</div><!-- #title -->
 			<div class="center">
 				<!-- Saying goodbye to user -->
 					<?php
@@ -46,11 +50,18 @@
 					?>
 			</div>
 		</header><!-- #header -->
-	<footer class="sansserif">
-      All images are copyright to their owners. This is just a hypothetical site &copy; 2015 Copyright Rock, Paper, Scissors
-    </footer>
+
+
+
+
 
 	</body>
+<footer>
+    <nav class="navbar navbar-default navbar-bottom" role="navigation">
+      <div class="container">
+      </div>
+    </nav>
+  </footer>
 
 
 </body>

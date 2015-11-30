@@ -1,15 +1,8 @@
-
-<!--Name: Claudia Mini
-    Date: November 14th, 2015
-  Note: Some of the code used in 
-  the sign up process uses pieces 
-  from Professor Schuforts code 
-  on canvas-->
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Sign Up</title>
-	<link rel="stylesheet" href="home.css">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="home.css">
       <link rel="stylesheet" href="css/bootstrap.css">
       <link rel="stylesheet" href="css/bootstrap-responsive.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -17,7 +10,6 @@
 <body>
 <nav class="navbar navbar-default">
       <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
@@ -37,25 +29,25 @@
       </div><!-- /.container-fluid -->
     </nav>
 
-    	<div id="wrapper">
+      <div id="wrapper">
 
-		<header id="header">
-			<div id="title">
-				<div class="center">
-					<!-- <p>Instructions: </p> -->
-				</div>
+    <header id="header">
+      <div id="title">
+        <div class="center">
+          <!-- <p>Instructions: </p> -->
+        </div>
 
 
-			</div><!-- #title -->
-		</header><!-- #header -->
+      </div><!-- #title -->
+    </header><!-- #header -->
 
 
 <?php
   // Connect to the database
-	define('DB_HOST', 'oniddb.cws.oregonstate.edu');
-	define('DB_NAME', 'minic-db');
-	define('DB_USER','minic-db');
-	define('DB_PASSWORD','P8OhL7x42sbQkpgN');
+  define('DB_HOST', 'oniddb.cws.oregonstate.edu');
+  define('DB_NAME', 'minic-db');
+  define('DB_USER','minic-db');
+  define('DB_PASSWORD','P8OhL7x42sbQkpgN');
   $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
   if (isset($_POST['submit'])) {
@@ -64,18 +56,18 @@
     $userName = mysqli_real_escape_string($dbc, trim($_POST['userName']));
     $pass = mysqli_real_escape_string($dbc, trim($_POST['pass']));
     $firstName = mysqli_real_escape_string($dbc, trim($_POST['firstName']));
-    $lastName = mysqli_real_escape_string($dbc, trim($_POST['lastName']));	
+    $lastName = mysqli_real_escape_string($dbc, trim($_POST['lastName']));  
 
     if (!empty($userName) && !empty($pass)) {
       // Make sure someone isn't already registered using this userName
-      $query = "SELECT * FROM UserName WHERE userName = '$userName'";
+      $query = "SELECT * FROM student WHERE username = '$userName'";
       $data = mysqli_query($dbc, $query);
 
     if (1 === preg_match('/^[A-Z].{0,20}[0-9]{2}$/', $pass)) {
       if (mysqli_num_rows($data) == 0) {
         // The userName is unique, so insert the data into the database
 
-        $query = "INSERT INTO UserName (userName, pass, firstName, lastName) VALUES ('$userName', sha1('$pass'), '$firstName', '$lastName')";
+        $query = "INSERT INTO student (username, password, first_name, last_name) VALUES ('$userName', sha1('$pass'), '$firstName', '$lastName')";
         
         mysqli_query($dbc, $query);
 
@@ -89,7 +81,7 @@
             <input type="text" name="userName" size="40"><br>
             Password <br>
             <input type="password" name="pass" size="40"><br><br>
-            <input id="button-sign" type="submit" name="submit" value="Log-In">
+            <input id="button-sign" class="btn btn-default" type="submit" name="submit" value="Log-In">
           </form>
         </fieldset>
       </div>';

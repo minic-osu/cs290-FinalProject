@@ -45,24 +45,25 @@
     </nav>
   </header>
 
+	<p>Choose a color!</p>
+  <section>
+	  <figure>
+		<img id ="red" onlick="compute(1)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Red_flag.svg/2000px-Red_flag.svg.pn://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Red_flag.svg/2000px-Red_flag.svg.png" alt="red"  width="100" height="100"/>
+	</figure>
 
+	<figure>
+		<img id ="green" onclick="compute(2)" src="http://greensportsalliance.org/images/darkGreenSquare.gif" alt="green" width="100" height="100"/>
 
+  	</figure>
 
+  	<figure>
+		<img id ="blue" onclick = "compute(3)" src = " http://fotonin.com/data_images/out/3/753759-blue.jpg" alt="blue" width="100" height="100" />
+  	</figure>
 
-
-
-Game stuff goes here!
-
-
-
-
-
-
-
-
-
-
-
+	<figure>
+		<img id ="purple" onclick="compute(4)" src="http://images.sodahead.com/polls/0/0/3/6/9/8/8/3/5/052400565_Purple.png" alt="purple" width="100" height="100" />
+	</figure>
+  </section>
 
 
   <footer>
@@ -71,6 +72,9 @@ Game stuff goes here!
       </div>
     </nav>
   </footer>
+
+	<script type="text/javascript" src="fortune.js"></script>
+
 
 </body>
 

@@ -53,7 +53,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Fortune Teller</a>
+          <a class="navbar-brand" href="homePage.php">Fortune Teller</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -81,7 +81,7 @@
 						echo " <h3> You are now logged in ".$_SESSION['firstName'];
 						echo "</h3><h5>To go to the fortune teller please click the button below.</h5>"; 
 						echo " <br /><br />"; 
-						echo " <p> <button class='btn btn-default' id='button-sign'><a href='./homePage.php'>Home</a> </button><br /><br />";
+						echo " <p> <button class='btn btn-default' id='button-sign'><a href='homePage.php'>Home</a> </button><br /><br />";
     					
 
 					}

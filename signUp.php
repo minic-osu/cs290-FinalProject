@@ -59,6 +59,10 @@
     $password = mysqli_real_escape_string($dbc, trim($_POST['password']));
     $firstName = mysqli_real_escape_string($dbc, trim($_POST['firstName']));
     $lastName = mysqli_real_escape_string($dbc, trim($_POST['lastName']));  
+    $description = mysqli_real_escape_string($dbc, trim($_POST['description'])); 
+    $major = mysqli_real_escape_string($dbc, trim($_POST['major'])); 
+    $spirit_animal = mysqli_real_escape_string($dbc, trim($_POST['spirit_animal'])); 
+    $class_standing = mysqli_real_escape_string($dbc, trim($_POST['class_standing'])); 
 
 
     if (!empty($userName) && !empty($password)) {
@@ -70,14 +74,14 @@
       if (mysqli_num_rows($data) == 0) {
         // The userName is unique, so insert the data into the database
 
-        $query = "INSERT INTO student (username, password, first_name, last_name) VALUES ('$userName', sha1('$password'), '$firstName', '$lastName')";
+        $query = "INSERT INTO student (username, password, first_name, last_name, description, major, spirit_animal, class_standing) VALUES ('$userName', sha1('$password'), '$firstName', '$lastName', '$description', '$major', '$spirit_animal', '$class_standing')";
         var_dump($query);
         $result = mysqli_query($dbc, $query);
         if (!$result) {
             die('Query did not work.' . mysql_error());
             error_reporting(-1); 
             ini_set('display_errors', 'On');
-            
+
         }
         // Confirm success with the user
         echo '<br><br><p class="center">Your new account has been successfully created. You\'re now ready to log in.</p>
@@ -130,7 +134,32 @@
       <input type="text" id="userName" name="userName" value="<?php if (!empty($userName)) echo $userName; ?>" /><br /><br />
       <label for="password">Password:</label>
       <input type="password" id="password" name="password" /><br /> <br /><br />
-
+      <label for="description">Description:</label>
+      <input type="text" id="description" name="description" /><br /> <br /><br />
+      <label for="major">Major:</label>
+      <select name="major">
+        <option value="computer_science">Computer Science</option>
+        <option value="electrical_engineering">Electrical Engineering</option>
+        <option value="zoology">Zoology</option>
+        <option value="psychology">Psychology</option>
+        <option value="mathematics">Mathematics</option>
+        <option value="literature">Literature</option>
+        <option value="mechanical_engineering">Mechanical Engineering</option>
+        <option value="environmental_biology">Environmental Biology</option>
+        <option value="chemical_engineering">Chemical Engineering</option>
+        <option value="computer_engineering">Computer Engineering</option>
+      </select><br /> <br /><br />
+      <!-- <input type="text" id="major" name="major" /><br /> <br /><br /> -->
+      <label for="spirit_animal">Spirit Animal:</label>
+      <input type="text" id="spirit_animal" name="spirit_animal" /><br /> <br /><br />
+      <label for="class_standing">Class Standing:</label>
+      <select name="class_standing">
+        <option value="freshman">Freshman</option>
+        <option value="sophomore">Sophomore</option>
+        <option value="junior">Junior</option>
+        <option value="senior">Senior</option>
+      </select>
+      <!-- <input type="text" id="class_standing" name="class_standing" /><br /> <br /><br /> -->
     </fieldset>
     <br />
      <input type="submit" class="btn btn-default" id="button-sign" value="Sign Up" name="submit" />

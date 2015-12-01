@@ -123,7 +123,7 @@
 ?>
 <br>
 
-  <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+  <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" id="sign-up">
     <fieldset>
       <legend>Registration Info</legend><br />
       <label for="firstName">First Name:</label>
@@ -134,10 +134,15 @@
       <input type="text" id="userName" name="userName" value="<?php if (!empty($userName)) echo $userName; ?>" /><br /><br />
       <label for="password">Password:</label>
       <input type="password" id="password" name="password" /><br /> <br /><br />
-      <label for="description">Description:</label>
-      <input type="text" id="description" name="description" /><br /> <br /><br />
+      <label for="description">Description:</label><br>
+      <!-- <input type="textarea" id="description" name="description" /><br /> <br /><br /> -->
+      <textarea name="description" cols=40 rows=6></textarea> <P>
+
+
+
       <label for="major">Major:</label>
       <select name="major">
+        <option value="">Select Major</option>
         <option value="computer_science">Computer Science</option>
         <option value="electrical_engineering">Electrical Engineering</option>
         <option value="zoology">Zoology</option>
@@ -154,6 +159,7 @@
       <input type="text" id="spirit_animal" name="spirit_animal" /><br /> <br /><br />
       <label for="class_standing">Class Standing:</label>
       <select name="class_standing">
+        <option value="">Select Standing</option>
         <option value="freshman">Freshman</option>
         <option value="sophomore">Sophomore</option>
         <option value="junior">Junior</option>

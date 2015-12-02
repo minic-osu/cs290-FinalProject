@@ -7,12 +7,11 @@ $dbuser = 'minic-db';
 $dbpass = 'P8OhL7x42sbQkpgN';
 
 
-if ((isset($_POST['description'])) && (isset($_POST['major'])) && (isset($_POST['spirit_animal']))  && (isset($_POST['class_standing']))&& (isset($_POST['share']))){
+if ((isset($_POST['description'])) && (isset($_POST['major'])) && (isset($_POST['spirit_animal']))  && (isset($_POST['class_standing']))){
 	$description = $_POST['description'];
 	$major = $_POST['major'];
 	$spirit_animal = $_POST['spirit_animal'];
 	$class_standing = $_POST['class_standing'];
-	$share = $_POST['share'];
 	$username = $_SESSION['username'];
 
 	$dbc = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
@@ -22,14 +21,17 @@ if ((isset($_POST['description'])) && (isset($_POST['major'])) && (isset($_POST[
 
 	$query = "SELECT * FROM student WHERE username='$username'";
 	$result = mysqli_query($dbc, $query);
+	$var = mysqli_fetch_array($query);
 
 	if (mysqli_num_rows($result) == 1) {
 
 		//update the database with given form variables
 		$query = ("UPDATE student
-		SET description='$description', major='$major', spirit_animal='$spirit_animal', class_standing='$class', share='$share'
+		SET description='$description', major='$major', spirit_animal='$spirit_animal', class_standing='$class',
 		WHERE username='$username'");
+		
 		mysqli_query($dbc, $query);
+		var_dump($query);
 	}
 	else {
 		//there was no username in the database
@@ -95,14 +97,14 @@ if ((isset($_POST['description'])) && (isset($_POST['major'])) && (isset($_POST[
 <legend>Profile Information:</legend>
 About You:<br>
 <textarea name="description" rows="10" cols="30">
-<?php$description?>
+<?php echo $var['description']; ?>
 </textarea>
 
 <br>
 <br>
 <br>
 Spirit Animal:<br>
-<input type="text" name="spirit_animal" value="<?php$spirit_animal?>">
+<input type="text" name="spirit_animal" value="<?php echo $var['spirit_animal']; ?>">
 <br>
 
 <br>

@@ -1,3 +1,17 @@
+<?php
+  session_start();
+
+
+  include 'connectivity.php';
+
+
+  $con=mysql_connect(DB_HOST,DB_USER,DB_PASSWORD) or die("Failed to connect to MySQL: " . mysql_error());
+  $db=mysql_select_db(DB_NAME,$con) or die("Failed to connect to MySQL: " . mysql_error());
+
+
+
+?>
+
 <!DOCTYPE html>
 <head>
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -46,18 +60,27 @@
 
 
 
+<?php
+// using a query to get the users from the db with their scores and displaying it in a table.
+$username = $_SESSION['username'];
+$result = mysql_query("SELECT fortune_desc, username FROM student JOIN fortune ON student.id = fortune.student_id WHERE username = '$username'", $con);
+  echo "<table class='table'>
+  <tr><td colspan='5' align='center'><h3>Past Fortunes</h3><br> <p> Below is a table of all the fortunes that you have received.</td></tr>
+  <tr>
+  <th>User Name</th>
+  <th>Fortune</th>
+  </tr>";
 
-Game stuff goes here!
+  while($row = mysql_fetch_array($result))
+    {
+    echo "<tr>";
+    echo "<td>" . $row['username'] . "</td>";
+    echo "<td>" . $row['fortune_desc'] . "</td>";
+    echo "</tr>";
+    }
+  echo "</table>";
 
-
-
-
-
-
-
-
-
-
+?>
 
 
 

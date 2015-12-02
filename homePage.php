@@ -45,24 +45,40 @@
     </nav>
   </header>
 
-	<p>Choose a color!</p>
   <section>
-	  <figure>
-		<img id ="red" onlick="compute(1)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Red_flag.svg/2000px-Red_flag.svg.pn://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Red_flag.svg/2000px-Red_flag.svg.png" alt="red"  width="100" height="100"/>
-	</figure>
+  	<form method="get" action="game.php">
+	<fieldset>
+	<label>Please answer these questions to decide your fortune!</label>
+	<p>
+	<label>Choose a color to figure out your fortune!</label>
 
-	<figure>
-		<img id ="green" onclick="compute(2)" src="http://greensportsalliance.org/images/darkGreenSquare.gif" alt="green" width="100" height="100"/>
+		<p>
+		<label>Choose one and only color</label>	
+		<input type="radio" name="question1" value="1"><img src="http://images.sodahead.com/polls/0/0/3/6/9/8/8/3/5/052400565_Purple.png" alt="purple" width="100" height="100" />	
+		<input type="radio" name="question1" value="2"><img src="http://cdn.wonderfulengineering.com/wp-content/uploads/2014/09/red-wallpaper-5.jpg" alt="red" width="100" height="100"/> 
+		<input type="radio" name="question1" value="3"><img src="http://greensportsalliance.org/images/darkGreenSquare.gif" alt="green" width="100" height="100" />
+		<input type="radio" name="question1" value="4"><img src="http://7-themes.com/data_images/out/35/6888399-navy-blue-wallpaper.jpg" alt="blue" width="100" height="100" />
 
-  	</figure>
 
-  	<figure>
-		<img id ="blue" onclick = "compute(3)" src = " http://fotonin.com/data_images/out/3/753759-blue.jpg" alt="blue" width="100" height="100" />
-  	</figure>
+		</p>
+	
+		<p> <label>Choose one and only one color</label>	
+		<input type="radio" name="question2" value="1"><img src="http://images.sodahead.com/polls/0/0/3/6/9/8/8/3/5/052400565_Purple.png" alt="purple" width="100" height="100" />	
+		<input type="radio" name="question2" value="2"><img src="http://cdn.wonderfulengineering.com/wp-content/uploads/2014/09/red-wallpaper-5.jpg" alt="red" width="100" height="100"/> 
+		<input type="radio" name="question2" value="3"><img src="http://greensportsalliance.org/images/darkGreenSquare.gif" alt="green" width="100" height="100" />
+		<input type="radio" name="question2" value="4"><img src="http://7-themes.com/data_images/out/35/6888399-navy-blue-wallpaper.jpg" alt="blue" width="100" height="100" />
 
-	<figure>
-		<img id ="purple" onclick="compute(4)" src="http://images.sodahead.com/polls/0/0/3/6/9/8/8/3/5/052400565_Purple.png" alt="purple" width="100" height="100" />
-	</figure>
+		
+			</p>
+	
+
+	<p>
+		<input type="submit" value="Submit"/>
+
+	</p>
+	</fieldset>
+	</form>
+	<br>
   </section>
 
 

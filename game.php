@@ -7,6 +7,7 @@ if(!$conn){
 	die('Could not connect: '.mysql_error());
 }
 
+
 function playgame($conn,$username,$answer1,$answer2)
 {
 
@@ -16,9 +17,9 @@ function playgame($conn,$username,$answer1,$answer2)
 		if($answer2 ==1)
 		{
 			$id_query = "SELECT id FROM student WHERE username = '$username'";
-			var_dump($id_query);
+		//	var_dump($id_query);
 			$id_query2 = mysqli_query($conn,$id_query);
-			var_dump($id_query2);
+		//	var_dump($id_query2);
 			if(!$id_query2)
 				echo"<p>There is no id</p>";
 		
@@ -30,7 +31,7 @@ function playgame($conn,$username,$answer1,$answer2)
 			echo"<p>Your fortune is ".$fortune;
 
 			$new_query = "INSERT INTO fortune (student_id,fortune_desc) VALUES('$id_query4','$fortune')";
-			var_dump($new_query);
+		//	var_dump($new_query);
 			if(!$new_query)
 				echo"<p>No update to fortune description</p>";
 			else
@@ -45,9 +46,9 @@ function playgame($conn,$username,$answer1,$answer2)
 		else if($answer2 ==2)
 		{
 			$id_query = "SELECT id FROM student WHERE username = '$username'";
-			var_dump($id_query);
+		//	var_dump($id_query);
 			$id_query2 = mysqli_query($conn,$id_query);
-			var_dump($id_query2);
+		//	var_dump($id_query2);
 			if(!$id_query2)
 				echo"<p>There is no id</p>";
 		
@@ -59,7 +60,7 @@ function playgame($conn,$username,$answer1,$answer2)
 			echo"<p>Your fortune is ".$fortune;
 
 			$new_query = "INSERT INTO fortune (student_id,fortune_desc) VALUES('$id_query4','$fortune')";
-			var_dump($new_query);
+		//	var_dump($new_query);
 			if(!$new_query)
 				echo"<p>No update to fortune description</p>";
 			else
@@ -74,9 +75,9 @@ function playgame($conn,$username,$answer1,$answer2)
 		else if($answer2 ==3)
 		{
 			$id_query = "SELECT id FROM student WHERE username = '$username'";
-			var_dump($id_query);
+		//	var_dump($id_query);
 			$id_query2 = mysqli_query($conn,$id_query);
-			var_dump($id_query2);
+		//	var_dump($id_query2);
 			if(!$id_query2)
 				echo"<p>There is no id</p>";
 		
@@ -88,7 +89,7 @@ function playgame($conn,$username,$answer1,$answer2)
 			echo"<p>Your fortune is ".$fortune;
 
 			$new_query = "INSERT INTO fortune (student_id,fortune_desc) VALUES('$id_query4','$fortune')";
-			var_dump($new_query);
+		//	var_dump($new_query);
 			if(!$new_query)
 				echo"<p>No update to fortune description</p>";
 			else
@@ -103,9 +104,9 @@ function playgame($conn,$username,$answer1,$answer2)
 		else
 		{
 			$id_query = "SELECT id FROM student WHERE username = '$username'";
-			var_dump($id_query);
+		//	var_dump($id_query);
 			$id_query2 = mysqli_query($conn,$id_query);
-			var_dump($id_query2);
+		//	var_dump($id_query2);
 			if(!$id_query2)
 				echo"<p>There is no id</p>";
 		
@@ -117,7 +118,7 @@ function playgame($conn,$username,$answer1,$answer2)
 			echo"<p>Your fortune is ".$fortune;
 
 			$new_query = "INSERT INTO fortune (student_id,fortune_desc) VALUES('$id_query4','$fortune')";
-			var_dump($new_query);
+		//	var_dump($new_query);
 			if(!$new_query)
 				echo"<p>No update to fortune description</p>";
 			else
@@ -130,15 +131,16 @@ function playgame($conn,$username,$answer1,$answer2)
 		}
 
 	}
+
 	else if($answer1==2)
 	{
 
 		if($answer2 ==1)
 		{
 			$id_query = "SELECT id FROM student WHERE username = '$username'";
-			var_dump($id_query);
+		//	var_dump($id_query);
 			$id_query2 = mysqli_query($conn,$id_query);
-			var_dump($id_query2);
+		//	var_dump($id_query2);
 			if(!$id_query2)
 				echo"<p>There is no id</p>";
 		
@@ -150,7 +152,7 @@ function playgame($conn,$username,$answer1,$answer2)
 			echo"<p>Your fortune is ".$fortune;
 
 			$new_query = "INSERT INTO fortune (student_id,fortune_desc) VALUES('$id_query4','$fortune')";
-			var_dump($new_query);
+		//	var_dump($new_query);
 			if(!$new_query)
 				echo"<p>No update to fortune description</p>";
 			else
@@ -161,13 +163,13 @@ function playgame($conn,$username,$answer1,$answer2)
 			echo"<p>If you would like to play again, click play again!<p>";
 			echo '<a href="homePage.php" target="blank" >Play Again</a>';  
 		}
-
+	
 		else if($answer2 ==2)
 		{
 			$id_query = "SELECT id FROM student WHERE username = '$username'";
-			var_dump($id_query);
+	//		var_dump($id_query);
 			$id_query2 = mysqli_query($conn,$id_query);
-			var_dump($id_query2);
+	//		var_dump($id_query2);
 			if(!$id_query2)
 				echo"<p>There is no id</p>";
 		
@@ -179,7 +181,7 @@ function playgame($conn,$username,$answer1,$answer2)
 			echo"<p>Your fortune is ".$fortune;
 
 			$new_query = "INSERT INTO fortune (student_id,fortune_desc) VALUES('$id_query4','$fortune')";
-			var_dump($new_query);
+	//		var_dump($new_query);
 			if(!$new_query)
 				echo"<p>No update to fortune description</p>";
 			else
@@ -190,13 +192,14 @@ function playgame($conn,$username,$answer1,$answer2)
 			echo"<p>If you would like to play again, click play again!<p>";
 			echo '<a href="homePage.php" target="blank" >Play Again</a>';  
 		}
+	
 
 		else if($answer2 ==3)
 		{
 			$id_query = "SELECT id FROM student WHERE username = '$username'";
-			var_dump($id_query);
+		//	var_dump($id_query);
 			$id_query2 = mysqli_query($conn,$id_query);
-			var_dump($id_query2);
+		//	var_dump($id_query2);
 			if(!$id_query2)
 				echo"<p>There is no id</p>";
 		
@@ -208,7 +211,7 @@ function playgame($conn,$username,$answer1,$answer2)
 			echo"<p>Your fortune is ".$fortune;
 
 			$new_query = "INSERT INTO fortune (student_id,fortune_desc) VALUES('$id_query4','$fortune')";
-			var_dump($new_query);
+		//	var_dump($new_query);
 			if(!$new_query)
 				echo"<p>No update to fortune description</p>";
 			else
@@ -223,9 +226,9 @@ function playgame($conn,$username,$answer1,$answer2)
 		else
 		{
 			$id_query = "SELECT id FROM student WHERE username = '$username'";
-			var_dump($id_query);
+		//	var_dump($id_query);
 			$id_query2 = mysqli_query($conn,$id_query);
-			var_dump($id_query2);
+		//	var_dump($id_query2);
 			if(!$id_query2)
 				echo"<p>There is no id</p>";
 		
@@ -237,7 +240,7 @@ function playgame($conn,$username,$answer1,$answer2)
 			echo"<p>Your fortune is ".$fortune;
 
 			$new_query = "INSERT INTO fortune (student_id,fortune_desc) VALUES('$id_query4','$fortune')";
-			var_dump($new_query);
+//			var_dump($new_query);
 			if(!$new_query)
 				echo"<p>No update to fortune description</p>";
 			else
@@ -249,14 +252,16 @@ function playgame($conn,$username,$answer1,$answer2)
 			echo '<a href="homePage.php" target="blank" >Play Again</a>';  
 		}
 
-		else if($answer1 ==3)
+	}
+
+	else if($answer1 ==3)
 		{
 			if($answer2 ==1)
 			{
 				$id_query = "SELECT id FROM student WHERE username = '$username'";
-				var_dump($id_query);
+			//	var_dump($id_query);
 				$id_query2 = mysqli_query($conn,$id_query);
-				var_dump($id_query2);
+			//	var_dump($id_query2);
 				if(!$id_query2)
 					echo"<p>There is no id</p>";
 
@@ -268,7 +273,7 @@ function playgame($conn,$username,$answer1,$answer2)
 				echo"<p>Your fortune is ".$fortune;
 
 				$new_query = "INSERT INTO fortune (student_id,fortune_desc) VALUES('$id_query4','$fortune')";
-				var_dump($new_query);
+			//	var_dump($new_query);
 				if(!$new_query)
 					echo"<p>No update to fortune description</p>";
 				else
@@ -283,9 +288,9 @@ function playgame($conn,$username,$answer1,$answer2)
 			else if($answer2 ==2)
 			{
 				$id_query = "SELECT id FROM student WHERE username = '$username'";
-				var_dump($id_query);
+			//	var_dump($id_query);
 				$id_query2 = mysqli_query($conn,$id_query);
-				var_dump($id_query2);
+			//	var_dump($id_query2);
 				if(!$id_query2)
 					echo"<p>There is no id</p>";
 
@@ -297,7 +302,7 @@ function playgame($conn,$username,$answer1,$answer2)
 				echo"<p>Your fortune is ".$fortune;
 
 				$new_query = "INSERT INTO fortune (student_id,fortune_desc) VALUES('$id_query4','$fortune')";
-				var_dump($new_query);
+			//	var_dump($new_query);
 				if(!$new_query)
 					echo"<p>No update to fortune description</p>";
 				else
@@ -312,9 +317,9 @@ function playgame($conn,$username,$answer1,$answer2)
 			else if($answer2 ==3)
 			{
 				$id_query = "SELECT id FROM student WHERE username = '$username'";
-				var_dump($id_query);
+			//	var_dump($id_query);
 				$id_query2 = mysqli_query($conn,$id_query);
-				var_dump($id_query2);
+			//	var_dump($id_query2);
 				if(!$id_query2)
 					echo"<p>There is no id</p>";
 
@@ -326,7 +331,7 @@ function playgame($conn,$username,$answer1,$answer2)
 				echo"<p>Your fortune is ".$fortune;
 
 				$new_query = "INSERT INTO fortune (student_id,fortune_desc) VALUES('$id_query4','$fortune')";
-				var_dump($new_query);
+			//	var_dump($new_query);
 				if(!$new_query)
 					echo"<p>No update to fortune description</p>";
 				else
@@ -341,9 +346,9 @@ function playgame($conn,$username,$answer1,$answer2)
 			else
 			{
 				$id_query = "SELECT id FROM student WHERE username = '$username'";
-				var_dump($id_query);
+			//	var_dump($id_query);
 				$id_query2 = mysqli_query($conn,$id_query);
-				var_dump($id_query2);
+			//	var_dump($id_query2);
 				if(!$id_query2)
 					echo"<p>There is no id</p>";
 
@@ -355,7 +360,7 @@ function playgame($conn,$username,$answer1,$answer2)
 				echo"<p>Your fortune is ".$fortune;
 
 				$new_query = "INSERT INTO fortune (student_id,fortune_desc) VALUES('$id_query4','$fortune')";
-				var_dump($new_query);
+			//	var_dump($new_query);
 				if(!$new_query)
 					echo"<p>No update to fortune description</p>";
 				else
@@ -366,14 +371,16 @@ function playgame($conn,$username,$answer1,$answer2)
 				echo"<p>If you would like to play again, click play again!<p>";
 				echo '<a href="homePage.php" target="blank" >Play Again</a>';  
 			}
+		}
+
 		else{
 
 			if($answer2 ==1)
 			{
 				$id_query = "SELECT id FROM student WHERE username = '$username'";
-				var_dump($id_query);
+			//	var_dump($id_query);
 				$id_query2 = mysqli_query($conn,$id_query);
-				var_dump($id_query2);
+			//	var_dump($id_query2);
 				if(!$id_query2)
 					echo"<p>There is no id</p>";
 
@@ -385,7 +392,7 @@ function playgame($conn,$username,$answer1,$answer2)
 				echo"<p>Your fortune is ".$fortune;
 
 				$new_query = "INSERT INTO fortune (student_id,fortune_desc) VALUES('$id_query4','$fortune')";
-				var_dump($new_query);
+			//	var_dump($new_query);
 				if(!$new_query)
 					echo"<p>No update to fortune description</p>";
 				else
@@ -400,9 +407,9 @@ function playgame($conn,$username,$answer1,$answer2)
 			else if($answer2 ==2)
 			{
 				$id_query = "SELECT id FROM student WHERE username = '$username'";
-				var_dump($id_query);
+			//	var_dump($id_query);
 				$id_query2 = mysqli_query($conn,$id_query);
-				var_dump($id_query2);
+			//	var_dump($id_query2);
 				if(!$id_query2)
 					echo"<p>There is no id</p>";
 
@@ -414,7 +421,7 @@ function playgame($conn,$username,$answer1,$answer2)
 				echo"<p>Your fortune is ".$fortune;
 
 				$new_query = "INSERT INTO fortune (student_id,fortune_desc) VALUES('$id_query4','$fortune')";
-				var_dump($new_query);
+			//	var_dump($new_query);
 				if(!$new_query)
 					echo"<p>No update to fortune description</p>";
 				else
@@ -429,9 +436,9 @@ function playgame($conn,$username,$answer1,$answer2)
 			else if($answer2 ==3)
 			{
 				$id_query = "SELECT id FROM student WHERE username = '$username'";
-				var_dump($id_query);
+			//	var_dump($id_query);
 				$id_query2 = mysqli_query($conn,$id_query);
-				var_dump($id_query2);
+			//	var_dump($id_query2);
 				if(!$id_query2)
 					echo"<p>There is no id</p>";
 
@@ -443,7 +450,7 @@ function playgame($conn,$username,$answer1,$answer2)
 				echo"<p>Your fortune is ".$fortune;
 
 				$new_query = "INSERT INTO fortune (student_id,fortune_desc) VALUES('$id_query4','$fortune')";
-				var_dump($new_query);
+			//	var_dump($new_query);
 				if(!$new_query)
 					echo"<p>No update to fortune description</p>";
 				else
@@ -458,9 +465,9 @@ function playgame($conn,$username,$answer1,$answer2)
 			else
 			{
 				$id_query = "SELECT id FROM student WHERE username = '$username'";
-				var_dump($id_query);
+			//	var_dump($id_query);
 				$id_query2 = mysqli_query($conn,$id_query);
-				var_dump($id_query2);
+			//	var_dump($id_query2);
 				if(!$id_query2)
 					echo"<p>There is no id</p>";
 
@@ -472,7 +479,7 @@ function playgame($conn,$username,$answer1,$answer2)
 				echo"<p>Your fortune is ".$fortune;
 
 				$new_query = "INSERT INTO fortune (student_id,fortune_desc) VALUES('$id_query4','$fortune')";
-				var_dump($new_query);
+			//	var_dump($new_query);
 				if(!$new_query)
 					echo"<p>No update to fortune description</p>";
 				else
@@ -487,10 +494,7 @@ function playgame($conn,$username,$answer1,$answer2)
 
 		}
 
-
 }
-	
-
 
 
 

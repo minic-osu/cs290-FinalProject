@@ -53,7 +53,7 @@
 	<label>Choose a color to figure out your fortune!</label>
 
 		<p>
-		<label>Choose one and only color</label>	
+		<label>Choose one and only one color</label>	
 		<input type="radio" name="question1" value="1"><img src="http://images.sodahead.com/polls/0/0/3/6/9/8/8/3/5/052400565_Purple.png" alt="purple" width="100" height="100" />	
 		<input type="radio" name="question1" value="2"><img src="http://cdn.wonderfulengineering.com/wp-content/uploads/2014/09/red-wallpaper-5.jpg" alt="red" width="100" height="100"/> 
 		<input type="radio" name="question1" value="3"><img src="http://greensportsalliance.org/images/darkGreenSquare.gif" alt="green" width="100" height="100" />
@@ -73,7 +73,7 @@
 	
 
 	<p>
-		<input type="submit" value="Submit"/>
+		<input class="btn btn-default" type="submit" value="Submit"/>
 
 	</p>
 	</fieldset>

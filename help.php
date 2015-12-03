@@ -28,7 +28,8 @@
             <li><a href="homePage.php">Home <span class="sr-only">(current)</span></a></li>
             <li><a href="about.php">About</a></li>
             <li class="active"><a href="help.php">Help</a></li>
-            <li><a href="past_fortunes.php">Past Fortunes</a></li>
+            <li><a href="past_fortunes.php">My Past Fortunes</a></li>
+            <li><a href="other_fortunes.php">All Fortunes</a></li>
            
           </ul>
 

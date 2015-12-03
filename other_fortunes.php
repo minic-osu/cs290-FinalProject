@@ -18,40 +18,7 @@
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/bootstrap-responsive.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <script type="text/javascript" src="jquery-1.3.2.min.js"></script>
-  <script type="text/javascript">
 
-    $(document).ready(function()
-    {
-      $('table#delTable td a.delete').click(function()
-      {
-        if (confirm("Are you sure you want to delete this row?"))
-        {
-          var id = $(this).parent().parent().attr('id');
-          var data = 'id=' + id ;
-          var parent = $(this).parent().parent();
-
-          $.ajax(
-          {
-               type: "POST",
-               url: "delete_row.php",
-               data: data,
-               cache: false,
-            
-               success: function()
-               {
-                parent.fadeOut('slow', function() {$(this).remove();});
-               }
-           });        
-        }
-      });
-      
-      // style the table with alternate colors
-      // sets specified color for every odd row
-      $('table#delTable tr:odd').css('background',' #FFFFFF');
-    });
-    
-  </script>
 </head>
 <body>
 
@@ -75,8 +42,8 @@
             <li><a href="homePage.php">Home <span class="sr-only">(current)</span></a></li>
             <li><a href="about.php">About</a></li>
             <li><a href="help.php">Help</a></li>
-            <li class="active"><a href="past_fortunes.php">My Past Fortunes</a></li>
-            <li><a href="other_fortunes.php">All Fortunes</a></li>
+            <li><a href="past_fortunes.php">My Past Fortunes</a></li>
+            <li class="active"><a href="other_fortunes.php">All Fortunes</a></li>
            
           </ul>
 
@@ -97,13 +64,12 @@
 <?php
 // using a query to get the users from the db with their scores and displaying it in a table.
 $username = $_SESSION['username'];
-$result = mysql_query("SELECT fortune_desc, username FROM student JOIN fortune ON student.id = fortune.student_id WHERE username = '$username'", $con);
-  echo "<table class='table' id='delTable'>
+$result = mysql_query("SELECT fortune_desc, username FROM student JOIN fortune ON student.id = fortune.student_id", $con);
+  echo "<table class='table'>
   <tr><td colspan='5' align='center'><h3>Past Fortunes</h3><br> <p> Below is a table of all the fortunes that you have received.</td></tr>
   <tr>
   <th>User Name</th>
   <th>Fortune</th>
-  <th>Delete</th>
   </tr>";
 
   while($row = mysql_fetch_array($result))
@@ -111,7 +77,6 @@ $result = mysql_query("SELECT fortune_desc, username FROM student JOIN fortune O
     echo "<tr>";
     echo "<td>" . $row['username'] . "</td>";
     echo "<td>" . $row['fortune_desc'] . "</td>";
-    echo '<td><a href="#" class="delete" style="color:#FF0000;"><img alt="" align="absmiddle" border="0" src="./delete.png"  width="20" height="20"/></td>';
     echo "</tr>";
     }
   echo "</table>";

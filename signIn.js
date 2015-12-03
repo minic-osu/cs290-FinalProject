@@ -11,6 +11,7 @@ $(function() {
        return false;
     }
 	var dataString = 'username='+ username + '&password=' + password;
+	
 	$.ajax({
       type: "POST",
       url: 'signIn.php',

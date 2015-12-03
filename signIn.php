@@ -19,7 +19,7 @@
 		$num_row = mysqli_num_rows($res);
 		$row=mysqli_fetch_assoc($res);
 		if( $num_row == 1 ) {
-			echo 'true';
+			
 			$_SESSION['username'] = $row['username'];
 			$_SESSION['password'] = $row['password'];
 			// $_SESSION['losses'] = $row['losses'];
@@ -30,5 +30,6 @@
 			echo http_response_code(400);
 
 		}
+		echo 'true';
 
 ?>

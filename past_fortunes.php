@@ -18,19 +18,21 @@
   <link rel="stylesheet" href="css/bootstrap-responsive.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <script type="text/javascript" src="jquery-1.3.2.min.js"></script>
-
-
   <script type="text/javascript">
 
     $(document).ready(function()
     {
-
-      $('table#delTable td a.delete').click(function()
+      // if (typeof jQuery == 'undefined') {
+      //    alert('no');
+      //  } else {
+      //      alert('yes');
+      //  }
+      $('table#delTable td button.delete').click(function()
       {
-        alert('test');
+        // alert('test');
         if (confirm("Are you sure you want to delete this row?"))
         {
-          var id = $(this).data('id');
+          var id = $(this).attr('data-id');
           var data = 'id=' + id ;
           var parent = $(this).parent().parent();
 
@@ -40,20 +42,21 @@
                url: "delete_row.php",
                data: data,
                cache: false,
-            
+
                success: function()
                {
                 parent.fadeOut('slow', function() {$(this).remove();});
+
                }
-           });        
+           });
         }
       });
-      
+
       // style the table with alternate colors
       // sets specified color for every odd row
       $('table#delTable tr:odd').css('background',' #FFFFFF');
     });
-    
+
   </script>
 </head>
 <body>
@@ -80,7 +83,7 @@
             <li><a href="help.php">Help</a></li>
             <li class="active"><a href="past_fortunes.php">My Past Fortunes</a></li>
             <li><a href="other_fortunes.php">All Fortunes</a></li>
-           
+
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
@@ -105,20 +108,20 @@ $query = "SELECT fortune_desc, username, fortune.id as fid FROM student JOIN for
   $result = mysqli_query($db, $query);
   $row = mysqli_num_rows($result);
   echo "<table class='table' id='delTable' method='POST'>
-  <tr><td colspan='5' align='center'><h3>Past Fortunes</h3><br> <p> Below is a table of all the fortunes that you have received.</td></tr>
+  <tr><td colspan='5' align='center'><h3>Past Fortunes</h3><br> <p> Below is a table of all the fortunes that you have received.<br> NOTE: If you delete a fortune all fortunes of that same description will be gone as well upon page refresh.</td></tr>
   <tr>
   <th>User Name</th>
   <th>Fortune</th>
   <th>Delete</th>
   </tr>";
-  while ($row = $result->fetch_assoc()) 
+  while ($row = $result->fetch_assoc())
     {
-    var_dump($row['fid']);
+    // var_dump($row['fid']);
 
     echo "<tr>";
     echo "<td>" . $row['username'] . "</td>";
     echo "<td>" . $row['fortune_desc'] . "</td>";
-    echo "<td><button class='delete' data-id=" . $row['fid'] . "><img alt='' align='absmiddle' border='0' src='./delete.png'  width='20' height='20'/></button></td>";
+    echo "<td><button class='delete' data-id=" . $row['fid'] . "   ><img alt='' align='absmiddle' border='0' src='./delete.png'  width='20' height='20'/></button></td>";
     echo "</tr>";
     }
   echo "</table>";

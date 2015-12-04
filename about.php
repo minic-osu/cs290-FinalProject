@@ -1,17 +1,17 @@
 <?php
 session_start();
 
-/*
+
 $dbhost = 'oniddb.cws.oregonstate.edu';
 $dbname = 'minic-db';
 $dbuser = 'minic-db';
 $dbpass = 'P8OhL7x42sbQkpgN';
-*/
 
-$dbhost = 'oniddb.cws.oregonstate.edu';
-$dbname = 'slikerk-db';
-$dbuser = 'slikerk-db';
-$dbpass = 'K7n4UBZhyUpBnB3J';
+
+// $dbhost = 'oniddb.cws.oregonstate.edu';
+// $dbname = 'slikerk-db';
+// $dbuser = 'slikerk-db';
+// $dbpass = 'K7n4UBZhyUpBnB3J';
 
 if ((isset($_POST['description'])) && (isset($_POST['major'])) && (isset($_POST['spirit_animal']))  && (isset($_POST['class_standing']))){
 	$description = $_POST['description'];

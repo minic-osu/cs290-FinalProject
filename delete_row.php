@@ -20,14 +20,16 @@
 
   $username = $_SESSION['username'];
 
-  $id = $_POST['id'];
-
+  $id = intval($_POST['id']);
+  echo "my ID:";
   var_dump($id);
 
-  $query = mysqli_query("DELETE FROM fortune WHERE id = '$id'", $db);
-
-  var_dump($id);
-
+  // $query = mysqli_query("DELETE FROM fortune WHERE id = '$id'", $db);
+  $query = $db->query("DELETE FROM fortune WHERE id = '$id'");
+  echo "The query:";
+  var_dump($query);
+  echo "An error:";
+  var_dump($db->error);
   // $id_query = mysqli_query("SELECT id FROM student WHERE username = '$username'");
 
   // $id_query = mysqli_fetch_array($query);

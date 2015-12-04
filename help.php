@@ -45,18 +45,23 @@
 
 
 	<section>
-		<p><b>Frequently asked questions: </b><p>
-		<p>Question: What are past fortunes? </p>
-		<p><i>Answer: When you click on past fortunes, you can see all the other fortunes you have gotten in the past. </i></p>
+		<p><center><b>Frequently asked questions: </b></center><p>
 		<br>
-		<p>Question: How do I see my past fortunes?</p>
-		<p><i>Answer: Click on past fortunes?</i></p>
 		<br>
-		<p>Question: What is the share button? </p>
-		<p><i>Answer: If you click share, other users can see your fortunes. </i></p>
+		<p><center>Question: What is the about me?</center></p>
+		<p><center><i>Answer: You can enter information about yourself to be stored in your database so you can persionalize your experiance! You can even share your fotunes and see past fortunes.</i></center></p>
 		<br>
-		<p>Qustion: Who should I contact if I'm experiancing difficulties? </p>
-		<p><i>Answer: Please click on the contact us page for contact details. </i></p>
+		<p><center>Question: What are past fortunes?</center> </p>
+		<p><center><i>Answer: When you click on past fortunes, you can see all the other fortunes you have gotten in the past. </i><center></p>
+		<br>
+		<p><center>Question: How do I see my past fortunes?<center></p>
+		<p><center><i>Answer: Click on past fortunes?</i><center></p>
+		<br>
+		<p><center>Question: What is the share button? <center></p>
+		<p><center><i>Answer: If you click share, other users can see your fortunes. </i><center></p>
+		<br>
+		<p><center>Qustion: Who should I contact if I'm experiancing difficulties? <center></p>
+		<p><center><i>Answer: Please click on the contact us page for contact details. </i><center></p>
 	</section>
 
 

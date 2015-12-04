@@ -139,10 +139,10 @@ function playgame($conn,$username,$answer1,$answer2)
 			else
 				$new_query2 = mysqli_query($conn,$new_query);
 			if(!$new_query2)
-				echo"<p>Final query didn't go through</p";
+			//	echo"<p>Final query didn't go through</p";
 
 			echo"<p>If you would like to play again, click play again!<p>";
-			echo "<button class='btn btn-default'><a href='homePage.php' >Play Again</a></button>";  
+			echo "<a href='homePage.php' class="btn btn-default" >Play Again</a></button>";  
 		}
 
 		else

@@ -11,6 +11,7 @@ $(function() {
        return false;
     }
 	var dataString = 'username='+ username + '&password=' + password;
+
 	$.ajax({
       type: "POST",
       url: 'signIn.php',
@@ -18,9 +19,9 @@ $(function() {
 	  dataType: "html",
       success: function(data) {
 	  if (data == 0) {
-	  $('.errormess').html('Wrong Login Data');
-		} else {
-			$('.errormess').html('<b style="color:green;">You are logged. Wait for redirection</b>');	
+	  	 	$('.errormess').html('Wrong Login Data');
+	  }else {
+			$('.errormess').html('<b style="color:grey;">Loading...</b>');	
 			document.location.href = 'homePage.php';	
 		}
       }

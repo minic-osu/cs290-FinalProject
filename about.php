@@ -1,11 +1,16 @@
 <?php
 session_start();
-
+/*
 $dbhost = 'oniddb.cws.oregonstate.edu';
 $dbname = 'minic-db';
 $dbuser = 'minic-db';
 $dbpass = 'P8OhL7x42sbQkpgN';
+ */
 
+$dbhost = 'oniddb.cws.oregonstate.edu';
+$dbname = 'slikerk-db';
+$dbuser = 'slikerk-db';
+$dbpass = 'K7n4UBZhyUpBnB3J';
 
 if ((isset($_POST['description'])) && (isset($_POST['major'])) && (isset($_POST['spirit_animal']))  && (isset($_POST['class_standing']))){
 	$description = $_POST['description'];
@@ -26,9 +31,7 @@ if ((isset($_POST['description'])) && (isset($_POST['major'])) && (isset($_POST[
 	if (mysqli_num_rows($result) == 1) {
 
 		//update the database with given form variables
-		$query = ("UPDATE student
-		SET description='$description', major='$major', spirit_animal='$spirit_animal', class_standing='$class',
-		WHERE username='$username'");
+		$query = ("UPDATE student SET description='$description', major='$major', spirit_animal='$spirit_animal', class_standing='$class_standing' WHERE username='mini'"); 
 		
 		mysqli_query($dbc, $query);
 		var_dump($query);
@@ -72,7 +75,8 @@ if ((isset($_POST['description'])) && (isset($_POST['major'])) && (isset($_POST[
 	    <li><a href="homePage.php">Home <span class="sr-only">(current)</span></a></li>
 	    <li class="active"><a href="about.php">About</a></li>
 	    <li><a href="help.php">Help</a></li>
-	    <li><a href="past_fortunes.php">Past Fortunes</a></li>
+        <li><a href="past_fortunes.php">My Past Fortunes</a></li>
+        <li><a href="other_fortunes.php">All Fortunes</a></li>
 
 	  </ul>
 
@@ -93,8 +97,7 @@ if ((isset($_POST['description'])) && (isset($_POST['major'])) && (isset($_POST[
 
 
 <form action="" method="POST">
-<fieldset>
-<legend>Profile Information:</legend>
+Profile Information:
 About You:<br>
 <textarea name="description" rows="10" cols="30">
 <?php echo $var['description']; ?>
@@ -111,28 +114,28 @@ Spirit Animal:<br>
 <br>
 <br>
 Major: <br>
-<select>
-<option name="major" value="computer_science">Computer Science</option>
-<option name="major" value="electrical_engineering">Electrical Engineering</option>
-<option name="major" value="zoology">Zoology</option>
-<option name="major" value="psychology">Psychology</option>
-<option name="major" value="mathematics">Mathematics</option>
-<option name="major" value="literature">Literature</option>
-<option name="major" value="mechanical_engineering">Mechanical Engineering</option>
-<option name="major" value="environmental_biology">Environmental Biology</option>
-<option name="major" value="chemical_engineering">Chemical Engineering</option>
-<option name="major" value="computer_engineering">Computer Engineering</option>
+<select name="major">
+<option value="computer_science">Computer Science</option>
+<option value="electrical_engineering">Electrical Engineering</option>
+<option value="zoology">Zoology</option>
+<option value="psychology">Psychology</option>
+<option value="mathematics">Mathematics</option>
+<option value="literature">Literature</option>
+<option value="mechanical_engineering">Mechanical Engineering</option>
+<option value="environmental_biology">Environmental Biology</option>
+<option value="chemical_engineering">Chemical Engineering</option>
+<option value="computer_engineering">Computer Engineering</option>
 </select>
 
 <br>
 <br>
 <br>
 Class Standing: <br>
-<select>
-<option name="class_standing" value="senior">Senior</option>
-<option name="class_standing" value="junior">Junior</option>
-<option name="class_standing" value="sophmore">Sophmore</option>
-<option name="class_standing" value="freshman">Freshman</option>
+<select name="class_standing">
+<option value="senior">Senior</option>
+<option value="junior">Junior</option>
+<option value="sophmore">Sophmore</option>
+<option value="freshman">Freshman</option>
 </select>
 
 <br>
@@ -143,7 +146,6 @@ Class Standing: <br>
 <input type="radio" name="share" value="false">Don't Share Fortune
 <br>
 <input type="submit" value="Update Profile">
-</fieldset>
 </form>
 
 

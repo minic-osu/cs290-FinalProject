@@ -5,11 +5,10 @@
   include 'connectivity.php';
 
 
-  $con=mysql_connect(DB_HOST,DB_USER,DB_PASSWORD) or die("Failed to connect to MySQL: " . mysql_error());
-  $db=mysql_select_db(DB_NAME,$con) or die("Failed to connect to MySQL: " . mysql_error());
-
-
-
+  $db=mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+ if (!$db) {
+     die("Failed to connect to MySQL: " . mysqli_connect_error());
+ }
 ?>
 
 <!DOCTYPE html>
@@ -23,8 +22,9 @@
 
     $(document).ready(function()
     {
-      $('table#delTable td a.delete').click(function()
+      $('table#delTable td a.delete').click(function(
       {
+        alert('test');
         if (confirm("Are you sure you want to delete this row?"))
         {
           var id = $(this).data('id');
@@ -97,10 +97,10 @@
 <?php
 // using a query to get the users from the db with their scores and displaying it in a table.
 $username = $_SESSION['username'];
-$query = "SELECT fortune_desc, username, fortune.id FROM student JOIN fortune ON student.id = fortune.student_id WHERE username = '".$username."' ";
+$query = "SELECT fortune_desc, username, fortune.id as fid FROM student JOIN fortune ON student.id = fortune.student_id WHERE username = '".$username."' ";
 // $result = mysql_query("SELECT fortune_desc, username, fortune.id FROM student JOIN fortune ON student.id = fortune.student_id WHERE username = '$username'", $con);
   $result = mysqli_query($db, $query);
-  $num_row = mysqli_num_rows($result);
+  $row = mysqli_num_rows($result);
   echo "<table class='table' id='delTable' method='POST'>
   <tr><td colspan='5' align='center'><h3>Past Fortunes</h3><br> <p> Below is a table of all the fortunes that you have received.</td></tr>
   <tr>
@@ -108,13 +108,14 @@ $query = "SELECT fortune_desc, username, fortune.id FROM student JOIN fortune ON
   <th>Fortune</th>
   <th>Delete</th>
   </tr>";
-
-  while($row = mysqli_fetch_assoc($num_row))
+  while ($row = $result->fetch_assoc()) 
     {
+    var_dump($row['fid']);
+
     echo "<tr>";
     echo "<td>" . $row['username'] . "</td>";
     echo "<td>" . $row['fortune_desc'] . "</td>";
-    echo "<td><a href='#' class='delete' data-id=" . $row['fortune.id'] . "   ><img alt='' align='absmiddle' border='0' src='./delete.png'  width='20' height='20'/></td>";
+    echo "<td><button class='delete' data-id=" . $row['fid'] . "   ><img alt='' align='absmiddle' border='0' src='./delete.png'  width='20' height='20'/></button></td>";
     echo "</tr>";
     }
   echo "</table>";

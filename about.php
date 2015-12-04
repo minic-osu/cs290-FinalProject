@@ -34,7 +34,7 @@ if ((isset($_POST['description'])) && (isset($_POST['major'])) && (isset($_POST[
 		$query = ("UPDATE student SET description='$description', major='$major', spirit_animal='$spirit_animal', class_standing='$class_standing' WHERE username='mini'"); 
 		
 		mysqli_query($dbc, $query);
-		var_dump($query);
+		//var_dump($query);
 	}
 	else {
 		//there was no username in the database
@@ -73,7 +73,7 @@ if ((isset($_POST['description'])) && (isset($_POST['major'])) && (isset($_POST[
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	  <ul class="nav navbar-nav">
 	    <li><a href="homePage.php">Home <span class="sr-only">(current)</span></a></li>
-	    <li class="active"><a href="about.php">About</a></li>
+	    <li class="active"><a href="about.php">About Me</a></li>
 	    <li><a href="help.php">Help</a></li>
         <li><a href="past_fortunes.php">My Past Fortunes</a></li>
         <li><a href="other_fortunes.php">All Fortunes</a></li>
@@ -97,7 +97,6 @@ if ((isset($_POST['description'])) && (isset($_POST['major'])) && (isset($_POST[
 
 
 <form action="" method="POST">
-Profile Information:
 About You:<br>
 <textarea name="description" rows="10" cols="30">
 <?php echo $var['description']; ?>
@@ -140,12 +139,7 @@ Class Standing: <br>
 
 <br>
 <br>
-<br>
-<input type="radio" name="share" value="true">Share Fortune
-<br>
-<input type="radio" name="share" value="false">Don't Share Fortune
-<br>
-<input type="submit" value="Update Profile">
+<input class="btn btn-default" type="submit" value="Update Profile">
 </form>
 
 

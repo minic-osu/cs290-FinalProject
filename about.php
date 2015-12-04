@@ -97,7 +97,6 @@ if ((isset($_POST['description'])) && (isset($_POST['major'])) && (isset($_POST[
 
 
 <form action="" method="POST">
-Profile Information:
 About You:<br>
 <textarea name="description" rows="10" cols="30">
 <?php echo $var['description']; ?>
@@ -140,12 +139,7 @@ Class Standing: <br>
 
 <br>
 <br>
-<br>
-<input type="radio" name="share" value="true">Share Fortune
-<br>
-<input type="radio" name="share" value="false">Don't Share Fortune
-<br>
-<input type="submit" value="Update Profile">
+<input class="btn btn-default" type="submit" value="Update Profile">
 </form>
 
 

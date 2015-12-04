@@ -34,7 +34,7 @@ if ((isset($_POST['description'])) && (isset($_POST['major'])) && (isset($_POST[
 		$query = ("UPDATE student SET description='$description', major='$major', spirit_animal='$spirit_animal', class_standing='$class_standing' WHERE username='mini'"); 
 		
 		mysqli_query($dbc, $query);
-		var_dump($query);
+		//var_dump($query);
 	}
 	else {
 		//there was no username in the database

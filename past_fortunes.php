@@ -18,11 +18,14 @@
   <link rel="stylesheet" href="css/bootstrap-responsive.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <script type="text/javascript" src="jquery-1.3.2.min.js"></script>
+
+
   <script type="text/javascript">
 
     $(document).ready(function()
     {
-      $('table#delTable td a.delete').click(function(
+
+      $('table#delTable td a.delete').click(function()
       {
         alert('test');
         if (confirm("Are you sure you want to delete this row?"))
@@ -115,7 +118,7 @@ $query = "SELECT fortune_desc, username, fortune.id as fid FROM student JOIN for
     echo "<tr>";
     echo "<td>" . $row['username'] . "</td>";
     echo "<td>" . $row['fortune_desc'] . "</td>";
-    echo "<td><button class='delete' data-id=" . $row['fid'] . "   ><img alt='' align='absmiddle' border='0' src='./delete.png'  width='20' height='20'/></button></td>";
+    echo "<td><button class='delete' data-id=" . $row['fid'] . "><img alt='' align='absmiddle' border='0' src='./delete.png'  width='20' height='20'/></button></td>";
     echo "</tr>";
     }
   echo "</table>";

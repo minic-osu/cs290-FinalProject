@@ -73,7 +73,7 @@ if ((isset($_POST['description'])) && (isset($_POST['major'])) && (isset($_POST[
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	  <ul class="nav navbar-nav">
 	    <li><a href="homePage.php">Home <span class="sr-only">(current)</span></a></li>
-	    <li class="active"><a href="about.php">About</a></li>
+	    <li class="active"><a href="about.php">About Me</a></li>
 	    <li><a href="help.php">Help</a></li>
         <li><a href="past_fortunes.php">My Past Fortunes</a></li>
         <li><a href="other_fortunes.php">All Fortunes</a></li>

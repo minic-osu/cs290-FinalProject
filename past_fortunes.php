@@ -27,7 +27,7 @@
       {
         if (confirm("Are you sure you want to delete this row?"))
         {
-          var id = $(this).parent().parent().attr('id');
+          var id = $(this).data('id');
           var data = 'id=' + id ;
           var parent = $(this).parent().parent();
 
@@ -97,8 +97,11 @@
 <?php
 // using a query to get the users from the db with their scores and displaying it in a table.
 $username = $_SESSION['username'];
-$result = mysql_query("SELECT fortune_desc, username FROM student JOIN fortune ON student.id = fortune.student_id WHERE username = '$username'", $con);
-  echo "<table class='table' id='delTable'>
+$query = "SELECT fortune_desc, username, fortune.id FROM student JOIN fortune ON student.id = fortune.student_id WHERE username = '".$username."' ";
+// $result = mysql_query("SELECT fortune_desc, username, fortune.id FROM student JOIN fortune ON student.id = fortune.student_id WHERE username = '$username'", $con);
+  $result = mysqli_query($db, $query);
+  $num_row = mysqli_num_rows($result);
+  echo "<table class='table' id='delTable' method='POST'>
   <tr><td colspan='5' align='center'><h3>Past Fortunes</h3><br> <p> Below is a table of all the fortunes that you have received.</td></tr>
   <tr>
   <th>User Name</th>
@@ -106,12 +109,12 @@ $result = mysql_query("SELECT fortune_desc, username FROM student JOIN fortune O
   <th>Delete</th>
   </tr>";
 
-  while($row = mysql_fetch_array($result))
+  while($row = mysqli_fetch_assoc($num_row))
     {
     echo "<tr>";
     echo "<td>" . $row['username'] . "</td>";
     echo "<td>" . $row['fortune_desc'] . "</td>";
-    echo '<td><a href="#" class="delete" style="color:#FF0000;"><img alt="" align="absmiddle" border="0" src="./delete.png"  width="20" height="20"/></td>';
+    echo "<td><a href='#' class='delete' data-id=" . $row['fortune.id'] . "   ><img alt='' align='absmiddle' border='0' src='./delete.png'  width='20' height='20'/></td>";
     echo "</tr>";
     }
   echo "</table>";

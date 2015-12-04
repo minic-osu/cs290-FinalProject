@@ -3,16 +3,16 @@
   include 'connectivity.php';
   $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 // Starting session and checking connectivity
-  $old_user = $_SESSION['username'];
+  // $old_user = $_SESSION['username'];
 
-  if (!empty($old_user)) {
-        echo '<br><br><h1> '.$old_user.', you are now logged out!</h1><br><br>';        
-  }else {
-        echo '<center><font color="red"><h5> You have inputted the wrong username and/or password. Please try again. </h5></font></center>';
-        include 'signIn.html';
-        die();
+  // if (!empty($old_user)) {
+  //       echo '<br><br><h1> '.$old_user.', you are now logged out!</h1><br><br>';        
+  // }else {
+  //       echo '<center><font color="red"><h5> You have inputted the wrong username and/or password. Please try again. </h5></font></center>';
+  //       include 'signIn.html';
+  //       die();
 
-  }
+  // }
 ?>
 
 <!DOCTYPE html>

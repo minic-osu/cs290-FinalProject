@@ -9,12 +9,16 @@
   $db=mysql_select_db(DB_NAME,$con) or die("Failed to connect to MySQL: " . mysql_error());
 
   $username = $_SESSION['username'];
-  $id_query = mysqli_query("SELECT id FROM student WHERE username = '$username'");
-  $id_query3 = mysqli_fetch_array($id_query);
-  $id_query4 = $id_query3['id'];
-  var_dump($id_query4);
+  $id = $_POST['id'];
 
-  mysqli_query("DELETE FROM fortune WHERE id = '$id_query4'", $con);
+  $query = mysqli_query("DELETE FROM fortune WHERE id = '$id'", $con);
+
+  // $id_query = mysqli_query("SELECT id FROM student WHERE username = '$username'");
+  // $id_query = mysqli_fetch_array($query);
+  // $id_query4 = $id_query3['id'];
+  // var_dump($id_query);
+
+  
   
  
 

@@ -1,11 +1,12 @@
 <?php
 session_start();
+
 /*
 $dbhost = 'oniddb.cws.oregonstate.edu';
 $dbname = 'minic-db';
 $dbuser = 'minic-db';
 $dbpass = 'P8OhL7x42sbQkpgN';
- */
+*/
 
 $dbhost = 'oniddb.cws.oregonstate.edu';
 $dbname = 'slikerk-db';
@@ -34,6 +35,7 @@ if ((isset($_POST['description'])) && (isset($_POST['major'])) && (isset($_POST[
 		$query = ("UPDATE student SET description='$description', major='$major', spirit_animal='$spirit_animal', class_standing='$class_standing' WHERE username='mini'"); 
 		
 		mysqli_query($dbc, $query);
+		echo "<html><center><font color='green'>You have successfuly updated your information!</font></center></html>";
 		//var_dump($query);
 	}
 	else {
@@ -95,23 +97,16 @@ if ((isset($_POST['description'])) && (isset($_POST['major'])) && (isset($_POST[
   <!-- Latest compiled and minified CSS -->
 
 
-
 <form action="" method="POST">
 About You:<br>
 <textarea name="description" rows="10" cols="30">
-<?php echo $var['description']; ?>
 </textarea>
 
 <br>
-<br>
-<br>
 Spirit Animal:<br>
-<input type="text" name="spirit_animal" value="<?php echo $var['spirit_animal']; ?>">
+<input type="text" name="spirit_animal" value="">
 <br>
 
-<br>
-<br>
-<br>
 Major: <br>
 <select name="major">
 <option value="computer_science">Computer Science</option>
@@ -127,8 +122,6 @@ Major: <br>
 </select>
 
 <br>
-<br>
-<br>
 Class Standing: <br>
 <select name="class_standing">
 <option value="senior">Senior</option>
@@ -141,18 +134,6 @@ Class Standing: <br>
 <br>
 <input class="btn btn-default" type="submit" value="Update Profile">
 </form>
-
-
-
-
-
-
-
-
-
-
-
-
 
   <footer>
     <nav class="navbar navbar-default navbar-bottom" role="navigation">

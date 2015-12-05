@@ -34,7 +34,7 @@ function compute(num)
 }
 
 
-
+alert("inside");
 
 
 document.getElementbyId("Image")=function() {compute(1)};

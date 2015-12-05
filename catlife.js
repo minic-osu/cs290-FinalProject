@@ -8,7 +8,7 @@ function display(num)
 function random(){
 	var x = Math.floor((Math.random()*99)+1);	
 	return x;
-	}
+}
 
 
 function compute(num)
@@ -32,9 +32,6 @@ function compute(num)
 		display(x);
 	}
 }
-
-
-alert("inside");
 
 
 document.getElementbyId("image")=function() {compute(1)};

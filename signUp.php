@@ -75,7 +75,7 @@
         // The userName is unique, so insert the data into the database
 
         $query = "INSERT INTO student (username, password, first_name, last_name, description, major, spirit_animal, class_standing) VALUES ('$userName', sha1('$password'), '$firstName', '$lastName', '$description', '$major', '$spirit_animal', '$class_standing')";
-        var_dump($query);
+        // var_dump($query);
         $result = mysqli_query($dbc, $query);
         if (!$result) {
             die('Query did not work.' . mysql_error());

@@ -66,7 +66,7 @@
 $username = $_SESSION['username'];
 $result = mysql_query("SELECT fortune_desc, username FROM student JOIN fortune ON student.id = fortune.student_id", $con);
   echo "<table class='table'>
-  <tr><td colspan='5' align='center'><h3>Past Fortunes</h3><br> <p> Below is a table of all the fortunes that you have received.</td></tr>
+  <tr><td colspan='5' align='center'><h3>Past Fortunes</h3><br> <p> Below is a table of all the fortunes that all users have.</td></tr>
   <tr>
   <th>User Name</th>
   <th>Fortune</th>

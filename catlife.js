@@ -1,3 +1,4 @@
+alert(stuff);
 function display(num)
 {
 
@@ -8,11 +9,12 @@ function display(num)
 function random(){
 	var x = Math.floor((math.random()*99)+1);	
 	return x;
-	}
+}
 
 
 function compute(num)
 {
+	alert("Im here");
 	var x = random();
 	if(num == 1)
 	{
@@ -23,9 +25,9 @@ function compute(num)
 		x+=x;
 		display(x);
 	}
-	eleif(num==3)
+	elseif(num==3)
 	{
-		x=*7;
+		x+=7;
 		display(x);
 	}
 	else{
@@ -37,7 +39,7 @@ function compute(num)
 alert("inside");
 
 
-document.getElementbyId("Image")=function() {compute(1)};
+document.getElementbyId("Image")=function(){compute(1)};
 document.getElementbyId("Image2")=function(){compute(2)};
 document.getElementbyId("Image3")=function(){compute(3)};
 document.getElementbyId("Image4")=function(){compute(4)};

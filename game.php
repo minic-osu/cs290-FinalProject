@@ -142,7 +142,7 @@ function playgame($conn,$username,$answer1,$answer2)
 			//	echo"<p>Final query didn't go through</p";
 
 			echo"<p>If you would like to play again, click play again!<p>";
-			echo "<a href='homePage.php' class="btn btn-default" >Play Again</a></button>";  
+			echo "<a href='homePage.php' class='btn btn-default' >Play Again</a></button>";  
 		}
 
 		else
